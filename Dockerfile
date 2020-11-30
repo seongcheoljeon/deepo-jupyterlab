@@ -9,6 +9,7 @@ FROM ufoym/deepo:cpu
 
 WORKDIR /root
 COPY startJupyterLabServer.sh .
+RUN chmod +x startJupyterLabServer.sh
 
 # setup NodeJS 14 LTS
 RUN apt-get update && apt-get -y install gpg-agent \
