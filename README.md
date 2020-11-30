@@ -2,6 +2,8 @@
 
 deepo 이미지에 jupyter-lab extension을 설치하는 dockerfile이다.
 
+## [Deepo](https://github.com/ufoym/deepo)
+
 ## 설치 방법
 
 ```shell
