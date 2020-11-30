@@ -4,6 +4,21 @@ deepo 이미지에 jupyter-lab extension을 설치하는 dockerfile이다.
 
 > ## [Deepo Github](https://github.com/ufoym/deepo)
 
+---
+
+## Pre-Setup
+
+Documents/deepo 디렉토리 경로에 다음과 같은 디렉토리들을 생성한다.  
+이 디렉토리들은 deepo container와 공유하는 디렉토리이다.
+
+- $HOME/Documents/deepo/data
+- $HOME/Documents/deepo/config
+
+```shell
+ex) mkdir -p $HOME/Documents/deepo/data
+ex) mkdir -p $HOME/Documents/deepo/config
+```
+
 ## 설치 방법
 
 ```shell
