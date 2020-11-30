@@ -29,9 +29,13 @@ docker build -t <your name>/deepo_jupyterlab:1.0 .
 ## 컨테이너 실행
 
 ```shell
-docker container run -itd -p 8889:8889 --name=[컨테이너명] -v <공유데이터 경로>:/data -v <공유속성 경로>:/config --ipc=host <이미지명>
+docker container run -itd -p 8889:8889 --name=[컨테이너명] -v <공유데이터 경로>:/data -v <공유속성 경로>:/config <이미지명>
 
-ex) docker container run -itd -p 8889:8889 --name=deepo -v ~/Documents/deepo/data:/data -v ~/Documents/deepo/config:/config --ipc=host seongcheoljeon/deepo_jupyterlab:1.0
+// CPU Version
+ex) docker container run --ipc=host -itd -p 8889:8889 --name=deepo -v ~/Documents/deepo/data:/data -v ~/Documents/deepo/config:/config seongcheoljeon/deepo_jupyterlab:1.0
+
+// GPU Version
+ex) docker container run --gpus all --ipc=host -itd -p 8889:8889 --name=deepo -v ~/Documents/deepo/data:/data -v ~/Documents/deepo/config:/config seongcheoljeon/deepo_jupyterlab:1.0
 ```
 
 ![capture_jupyterlab](capture_jupyterlab.png)
