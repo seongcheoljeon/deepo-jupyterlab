@@ -61,14 +61,14 @@ RUN jupyter labextension install @deathbeds/jupyterlab-fonts --no-build \
     && jupyter labextension install @wallneradam/output_auto_scroll --no-build \
     # git
     # jupyterlab extensions 빌드
-    && jupyter lab build \
+    && jupyter lab build --dev-build=False --minimize=False \
     echo "***** Done installed jupyter-lab extensions *****"
 # [END] ##### install jupyter lab extension ##### #
 
 RUN mkdir /data /config
 
 # port 
-EXPOSE 8888
+EXPOSE 8889
 
 # 컨테이너 실행시 jupyter-lab 서버 시작
 ENTRYPOINT [ "/root/startJupyterLabServer.sh" ]

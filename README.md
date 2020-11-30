@@ -13,5 +13,5 @@ docker build -t <your name>/deepo_jupyterlab:1.0 .
 ## 컨테이너 실행
 
 ```shell
-docker container run -itd -p 8888:8888 --name=deepo -v ~/Documents/deepo/data:/data -v ~/Documents/deepo/config:/config --ipc=host jsgcl/deepo_jupyterlab:1.0
+docker container run -itd -p 8889:8889 --name=deepo -v ~/Documents/deepo/data:/data -v ~/Documents/deepo/config:/config --ipc=host jsgcl/deepo_jupyterlab:1.0
 ```
