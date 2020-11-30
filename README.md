@@ -22,7 +22,7 @@ ex) mkdir -p $HOME/Documents/deepo/config
 ## 설치 방법
 
 ```shell
-cd <다운로드 받은 디렉토리>
+cd <다운로드 받은 디렉토리>/dockerfiles
 docker build -t <your name>/deepo_jupyterlab:1.0 .
 ```
 
