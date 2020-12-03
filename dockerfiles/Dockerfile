@@ -7,6 +7,10 @@
 # deepo (CPU) docker image
 FROM ufoym/deepo:cpu
 
+LABEL maintainer "seongcheol jeon"
+LABEL version "1.0"
+LABEL description "deepo with jupyter extension"
+
 WORKDIR /root
 COPY startJupyterLabServer.sh .
 RUN chmod +x startJupyterLabServer.sh
@@ -73,3 +77,5 @@ EXPOSE 8889
 
 # 컨테이너 실행시 jupyter-lab 서버 시작
 ENTRYPOINT [ "/root/startJupyterLabServer.sh" ]
+
+
