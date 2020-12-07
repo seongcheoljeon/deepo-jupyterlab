@@ -13,7 +13,7 @@ LABEL description "deepo with jupyter extension"
 
 WORKDIR /root
 COPY startJupyterLabServer.sh .
-RUN chmod +x startJupyterLabServer.sh
+RUN chmod u+x startJupyterLabServer.sh
 
 # setup NodeJS 14 LTS
 RUN apt-get update && apt-get -y install gpg-agent \
@@ -70,12 +70,12 @@ RUN jupyter labextension install @deathbeds/jupyterlab-fonts --no-build \
     echo "***** Done installed jupyter-lab extensions *****"
 # [END] ##### install jupyter lab extension ##### #
 
-RUN mkdir /data /config
+RUN mkdir /root/data
 
 # port 
 EXPOSE 8889
 
 # 컨테이너 실행시 jupyter-lab 서버 시작
-ENTRYPOINT [ "/root/startJupyterLabServer.sh" ]
+ENTRYPOINT [ "/bin/bash", "/root/startJupyterLabServer.sh" ]
 
 

@@ -19,23 +19,27 @@ ex) mkdir -p $HOME/Documents/deepo/data
 ex) mkdir -p $HOME/Documents/deepo/config
 ```
 
-## 설치 방법
+## 컨테이너로 실행
 
 ```shell
 cd <다운로드 받은 디렉토리>/dockerfiles
-docker build -t <your name>/deepo_jupyterlab:1.0 .
+docker build -t <your name>/deepo-jupyterlab .
 ```
 
-## 컨테이너 실행
-
 ```shell
-docker container run -itd -p 8889:8889 --name=[컨테이너명] -v <공유데이터 경로>:/data -v <공유속성 경로>:/config <이미지명>
+docker container run -itd -p 8889:8888 --name=[컨테이너명] -v <공유데이터 경로>:/root/data -v <공유속성 경로>:/root/.jupyter <이미지명>
 
 // CPU Version
-ex) docker container run --ipc=host -itd -p 8889:8889 --name=deepo --restart always -v ~/Documents/deepo/data:/data -v ~/Documents/deepo/config:/config seongcheoljeon/deepo_jupyterlab:1.0
+ex) docker container run --ipc=host -itd -p 8889:8888 --name=deepo --restart always -v ~/Documents/deepo/data:/root/data -v ~/Documents/deepo/config:/root/.jupyter deepo-jupyterlab
 
 // GPU Version
-ex) docker container run --gpus all --ipc=host -itd -p 8889:8889 --name=deepo --restart always -v ~/Documents/deepo/data:/data -v ~/Documents/deepo/config:/config seongcheoljeon/deepo_jupyterlab:1.0
+ex) docker container run --gpus all --ipc=host -itd -p 8889:8888 --name=deepo --restart always -v ~/Documents/deepo/data:/root/data -v ~/Documents/deepo/config:/root/.jupyter deepo-jupyterlab
+```
+
+## Docker Compose로 실행
+
+```shell
+docker-compose up -d --build
 ```
 
 ![capture_jupyterlab](capture_jupyterlab.png)
@@ -72,4 +76,3 @@ Settings - JupyterLab Theme - JupyterLab Horizon
   - dracula
   - horizon
   - material darker
-

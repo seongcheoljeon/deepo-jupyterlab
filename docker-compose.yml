@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  deepo-jupyterlab:
+    build:
+      context: ./dockerfiles
+      dockerfile: Dockerfile
+    image: deepo-jupyterlab
+    ports:
+      - '8889:8888'
+    container_name: 'deepo'
+    restart: always
+    volumes:
+      - '~/Documents/deepo/data:/root/data'
+      - '~/Documents/deepo/config:/root/.jupyter'
+    ipc: 'host'
